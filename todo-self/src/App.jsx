@@ -51,14 +51,15 @@ const handleChange = (e) =>{
 
       <div className='render-list bg-slate-700 h-1/2 overflow-scroll mx-14  '>
    
+   <div className='flex justify-center'>
       <input
-            className="p-4 text-2xl border-2 rounded-md bg-slate-300"
+            className="p-4 mt-2 text-2xl border-2 rounded-md  "
             type="text"
             value={task[task.length - 1] || ""} // Display the current input value
             onChange={handleChange} // Update input value in the task array
             placeholder="Type here"
           />
-
+</div>
         <ul>
           {task.length===0 ? (<li className='text-2xl text-white text-center p-4'>No Tasks Available</li>) : (
             task.map((task,index)=>(<li key={index} className='mx-2 px-2 text-2xl text-white py-2'>{task}</li>))
