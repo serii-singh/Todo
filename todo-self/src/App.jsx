@@ -66,10 +66,7 @@ const handleChange = (e) =>{
             
             )
           }
-
-
         </ul>
-
       </div>
      </div>
      
