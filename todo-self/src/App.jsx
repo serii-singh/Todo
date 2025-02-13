@@ -5,22 +5,25 @@ import './App.css'
 function App() {
   
  const[task,setTask] =useState([]);
+//  const[input,setInput] =useState("");
  
 
  const addTask =() =>{ 
   // const newTask = prompt("enter a task ");
   const newTask = task[task.length - 1]
+  console.log(newTask , "list of tasks")
   if(newTask){
-    setTask([...task.slice(0, task.length - 1), newTask, ""])
+    setTask([...task.slice(0, task.length - 1), newTask,""])
   }
  }
 const removeTask = () =>{
   if (task.length === 0) return ;
   // const removedTask = task.pop();
-  const removedTask = task.length - 1; // Get the last task (before removal)
-  console.log(task[task.length-1]);
-  setTask(task.slice(0, removedTask)); // Create a new array without the last task
-// setTask([...task])
+  // const removedTask = task.length - 1; // Get the last task (before removal)
+  // console.log(task[task.length-1]);
+  // setTask(task.slice(0, removedTask),""); // Create a new array without the last task
+  setTask((prevTask)=>prevTask.slice(0,prevTask.length-2).concat(""))
+// setTask([...task ,""])
 
 }
 
