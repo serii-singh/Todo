@@ -5,36 +5,25 @@ import './App.css'
 function App() {
   
  const[task,setTask] =useState([]);
-//  const[input,setInput] =useState("");
+ const[input,setInput] =useState("");
  
 
  const addTask =() =>{ 
-  // const newTask = prompt("enter a task ");
-  const newTask = task[task.length - 1]
-  console.log(newTask , "list of tasks")
-  if(newTask){
-    setTask([...task.slice(0, task.length - 1), newTask,""])
+  if(input){
+    setTask((prevTasks)=>[...prevTasks,input])
+    setInput("")
+
   }
+  
  }
 const removeTask = () =>{
-  if (task.length === 0) return ;
-  // const removedTask = task.pop();
-  // const removedTask = task.length - 1; // Get the last task (before removal)
-  // console.log(task[task.length-1]);
-  // setTask(task.slice(0, removedTask),""); // Create a new array without the last task
-  setTask((prevTask)=>prevTask.slice(0,prevTask.length-2).concat(""))
-// setTask([...task ,""])
-
+  if(task.length>0){
+   setTask((prevTasks)=>prevTasks.slice(0,prevTasks.length-1))
+  }
 }
 
 const handleChange = (e) =>{
-  const newInput = e.target.value;
-  
-  setTask((prevTask) => {
-    const updatedTasks = [...prevTask]; // Create a copy of the array
-    updatedTasks[updatedTasks.length - 1] = newInput; // Update the last task
-    return updatedTasks; // Return the new array
-  });
+  setInput(e.target.value)
 }
   return (
     <div className='border border-violet-100'>
@@ -58,7 +47,7 @@ const handleChange = (e) =>{
       <input
             className="p-4 mt-2 text-2xl border-2 rounded-md  "
             type="text"
-            value={task[task.length - 1] || ""} // Display the current input value
+            value={input} // Display the current input value
             onChange={handleChange} // Update input value in the task array
             placeholder="Type here"
           />
