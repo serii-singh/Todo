@@ -74,7 +74,7 @@ updatedTasks[index].completed = !updatedTasks[index].completed;
 
             >
               {/* Completed */}
-              {task.completed ? "Unmatk" : "Completed"}
+              {task.completed ? "Unmark" : "Completed"}
             </button></li>
             ))
             
